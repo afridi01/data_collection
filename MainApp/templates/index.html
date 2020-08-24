@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Data Collection Site</title>
+
+    <style>
+
+
+        h1 {
+
+            text-align: center;
+            display: block;
+        }
+
+        textarea {
+            min-height: 510px;
+            margin-bottom: 10px;
+
+        }
+
+
+        .parent {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: rgb(71, 125, 161);
+            background: linear-gradient(90deg, rgba(71, 125, 161, 0.9304096638655462) 27%, rgba(17, 126, 179, 1) 86%);
+        }
+
+        .box {
+            background: darkgray;
+            min-width: 300px;
+            min-height: 200px;
+            position: relative;
+            text-align: center;
+            padding: 20px 0;
+            margin: auto;
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+
+            flex: 2 2 150px; /*  Stretching: */
+            flex: 1 1 150px; /*  No stretching: */
+            margin: 55px;
+        }
+
+        .script {
+            height: 700px;
+            overflow-y: scroll;
+
+        }
+
+        .lastText {
+            display: flex;
+            font-weight: bold;
+            color: brown;
+            font-size: 20px;
+            justify-content: center;
+        }
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'homepage' %}">DataCollection</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'homepage' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1>স্বাগতম আপনাকে </h1>
+    <p>আমরা বাংলা টেক্সট থেকে বাংলিশ টেক্সট কনভার্ট করবো। আমরা মূলত প্রতিনিয়ত ইংলিশ আলফাবেট ইউজ করে যেভাবে বাংলা লিখি
+        অর্থাৎ বাংলিশ লেখি এই ডাটা গুলা কালেক্ট করাই মূল উদ্দেশ্য। </p>
+
+
+    <div class="parent white">
+        <div class="box script">
+
+            <h1 style="color: brown;">Data Script</h1>
+
+            <h4>{{ data.script }}</h4>
+            <hr color="black">
+            <p class="lastText"> এখানের লেখা গুলো পড়ে ট্রান্সলেট করতে হবে</p>
+        </div>
+
+        <div class="box ">
+
+            <form class="was-validated " action="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <h1 style="color: brown;">Script Translate Text</h1>
+                    <input type="number" class="d-none" name="id" value="{{ data.id }}">
+                    <textarea name="text" class="form-control is-invalid" id="validationTextarea"
+                              placeholder="Requires banglish translation text from a given data script. "
+                              required></textarea>
+
+                    <input type="submit" class="btn btn-primary btn-sm ">
+
+
+                </div>
+            </form>
+
+            <p class="lastText"> সহযোগিতার জন্য আপনাকে অসংখ্য ধন্যবাদ। </p>
+        </div>
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</body>
+</html>
