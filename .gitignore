@@ -2,3 +2,8 @@ env.py
 venv
 .idea
 .github
+static
+__pycache__
+*.pyc
+Data_Collection/__pycache__/settings.cpython-38.pyc
+Data_Collection/__pycache__/settings.cpython-38.pyc
