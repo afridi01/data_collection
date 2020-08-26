@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import *
 
 
@@ -14,6 +15,7 @@ def index(request):
         datascript.save()
         textinput = ScriptInput(inputText=text, user_that_input=datascript)
         textinput.save()
+        messages.success(request, 'text saved!')
         return redirect('/')
 
     context = {'data': data}
